@@ -36,6 +36,21 @@ const lib = {
     },
     append: (name) => {
      
+    },
+    stylesheet: {
+        add: (url, id) => {
+            let link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = url;
+            link.id = id;
+            document.getElementsByTagName('head')[0].appendChild(link);
+        },
+        remove: (id) => {
+            if(!lib.id(id)) {
+                return;
+            }
+            lib.id(id).remove();
+        }
     }
 }
 
