@@ -63,6 +63,7 @@ const pager = {
                 (cache) ?  cacher.store(url, data) : null;
              
                 pager.callback(data, callback, url, clss)
+                pager.init(clss, callback, cache)
         });
     },
     init: (clss, callback, cache) => {

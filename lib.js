@@ -28,6 +28,14 @@ const lib = {
         }
 
         return window.location.pathname;
+    },
+    elem: (elem, html) => {
+        var wrapper = document.createElement(elem);
+        wrapper.innerHTML = html;
+        return wrapper.firstChild;
+    },
+    append: (name) => {
+     
     }
 }
 
