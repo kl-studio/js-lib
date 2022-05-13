@@ -29,6 +29,13 @@ const lib = {
 
         return window.location.pathname;
     },
+    siteurl: (name) => {
+        if(name) {
+            return (window.location.origin == name) ? true : false;
+        }
+
+        return window.location.origin;
+    },
     elem: (elem, html) => {
         var wrapper = document.createElement(elem);
         wrapper.innerHTML = html;

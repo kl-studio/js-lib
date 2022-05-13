@@ -20,6 +20,7 @@ const resting = {
     },
     fetch: (url, route, callback, cache) => {
 
+        
         // Cache
         if(cacher.check(url) && cache) {
             let data = cacher.retrieve(url);
@@ -28,11 +29,16 @@ const resting = {
         };
 
 
+        
+
+        
+
         let fetchUrl = resting.url.home +  url;
         if (url.indexOf("http://") == 0 || url.indexOf("https://") == 0) {
             fetchUrl = url;
         }
 
+   
         // Fetch
         fetch(fetchUrl)
             .then(response => response.json())
