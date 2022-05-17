@@ -29,6 +29,9 @@ const lib = {
 
         return window.location.pathname;
     },
+    themePath: (name) => {
+        return lib.siteurl() +'/wp-content/themes/' + name;
+    },
     siteurl: (name) => {
         if(name) {
             return (window.location.origin == name) ? true : false;
@@ -40,7 +43,7 @@ const lib = {
         var wrapper = document.createElement(elem);
         wrapper.innerHTML = html;
         return wrapper.firstChild;
-    },
+    }, 
     append: (name) => {
      
     },
@@ -51,6 +54,20 @@ const lib = {
             link.href = url;
             link.id = id;
             document.getElementsByTagName('head')[0].appendChild(link);
+        },
+        remove: (id) => {
+            if(!lib.id(id)) {
+                return;
+            }
+            lib.id(id).remove();
+        }
+    },
+    script: {
+        add: (url, id) => {
+            var script = document.createElement('script');
+            script.src = url;
+            script.id = id;
+            document.body.append(script);
         },
         remove: (id) => {
             if(!lib.id(id)) {
