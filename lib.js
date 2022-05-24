@@ -47,6 +47,7 @@ const lib = {
     append: (name) => {
      
     },
+    sleep: m => new Promise(r => setTimeout(r, m)),
     stylesheet: {
         add: (url, id) => {
             let link = document.createElement('link');
