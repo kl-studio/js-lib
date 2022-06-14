@@ -20,7 +20,12 @@ const resting = {
     },
     fetch: (url, route, callback, cache) => {
 
+        // * Abort Controller
+        const controller = new AbortController();
+        const signal = controller.signal;
+        // controller.abort(); // Abort the request
         
+
         // Cache
         if(cacher.check(url) && cache) {
             let data = cacher.retrieve(url);
@@ -29,10 +34,6 @@ const resting = {
         };
 
 
-        
-
-        
-
         let fetchUrl = resting.url.home +  url;
         if (url.indexOf("http://") == 0 || url.indexOf("https://") == 0) {
             fetchUrl = url;
@@ -40,7 +41,7 @@ const resting = {
 
    
         // Fetch
-        fetch(fetchUrl)
+        fetch(fetchUrl, { signal: controller.signal } )
             .then(response => response.json())
             .then(data => {
                 resting.callback(data, callback, route);

@@ -69,7 +69,8 @@ const pager = {
     init: (clss, callback, cache) => {
         lib.qs('#' + clss).classList.add('pager-item')
          lib.qsa('[' + clss + ']').forEach(a => {
-            if(a.host == window.location.host) {
+            if(a.host == window.location.host && !a.hasAttribute('pager-primer')) {
+                a.setAttribute('pager-primer', 'true');
                 a.addEventListener('click', (e) => {
                     e.preventDefault()
                     pager.fetch(a.pathname, callback, clss, cache)
