@@ -16,7 +16,7 @@ const measurer = {
         }
         window.addEventListener("resize", measure);
         measure();
-    }
+    },
 }
 
 export { measurer as default }

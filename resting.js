@@ -1,5 +1,5 @@
 /* 
-* Resging
+* Resting
 *
 * Usage ----------------------------------------------
 * (-) Fetch /wp-json/, (2) Sub-objects, (3) Call function App.restResponse, (4) Set Cache

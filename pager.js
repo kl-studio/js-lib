@@ -46,6 +46,9 @@ const pager = {
 
         setTimeout(() => {
             lib.qs('#' + clss).remove()
+            lib.qsa('.pager-item').forEach((item) => {
+                item.classList.remove('absolute');
+            });
         }, 1100)
 
         callback(data)

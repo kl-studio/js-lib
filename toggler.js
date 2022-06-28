@@ -73,17 +73,18 @@ const toggler = {
         return true
     },
     event: (obj, sV, collection = null, callback) => {
-        obj.addEventListener('click', () => {
 
-           
-          
+        // Limit Event Listener Addition
+        if(obj.getAttribute('listener') == 'true') {return;}
+        obj.setAttribute('listener', 'true');
+
+        var aevent = () => {
             sV.current = (sV.opt[1] == sV.current) ? sV.opt[0] : sV.opt[1]; 
             (collection) ? toggler.render(collection, sV) : toggler.render(obj, sV);
-
-        
             (callback) ? callback(sV) : null;
-            
-        });
+        }
+
+        obj.addEventListener('click', aevent, true );
     },
     render: (obj, sV) => { // Render the current option
         toggler.set(obj, sV, sV.current)
