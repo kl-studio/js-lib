@@ -89,6 +89,14 @@ const lib = {
     },
   },
   inViewport: (elem, callback, options = {}) => {
+    /* Usage: */
+    /* lib.inViewport(
+    //  "#dynamic-articles-spring-loader-1",
+    //   (element) => {
+    //   },
+    //  {
+    //    root: document.querySelector(".scroll"),
+    //  } */
     return new IntersectionObserver((entries) => {
       entries.forEach((entry) => callback(entry));
     }, options).observe(document.querySelector(elem));
