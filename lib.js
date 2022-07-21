@@ -101,6 +101,13 @@ const lib = {
       entries.forEach((entry) => callback(entry));
     }, options).observe(document.querySelector(elem));
   },
+  getParentNode: (element, level = 1) => {
+    while (level-- > 0) {
+      element = element.parentNode;
+      if (!element) return null;
+    }
+    return element;
+  },
 };
 
 export { lib as default };
